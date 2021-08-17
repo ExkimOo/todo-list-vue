@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Header />
+    <Add />
     <List
       v-bind:todos="todos"
     />
@@ -10,7 +11,7 @@
 <script>
 import Header from './components/Header.vue'
 import List from './components/List.vue'
-
+import Add from './components/Add.vue'
 
 export default {
   name: 'App',
@@ -26,6 +27,7 @@ export default {
   components: {
     Header,
     List,
+    Add
   }
 }
 </script>
@@ -37,5 +39,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  
 }
 </style>
