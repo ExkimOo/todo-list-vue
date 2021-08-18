@@ -1,18 +1,15 @@
 <template>
     <div>
-        <h1>
+        <h1 class="header">
             Vue Todo List
         </h1>
         <hr>
     </div>
 </template>
 
-<script>
-
-</script>
-
-<style>
-div {
-    margin: 0;
+<style scope>
+.header {
+    margin: 20px 0;
+    font-size: 36px;
 }
 </style>

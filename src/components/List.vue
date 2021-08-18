@@ -1,9 +1,11 @@
 <template>
     <ul>
         <ListElem
-            v-for="todo of todos"
+            v-for="(todo, i) of todos"
             v-bind:todo="todo"
             v-bind:key="todo.id"
+            v-bind:index="i"
+            v-on:remove-elem="removeElem"
         />
     </ul>
 </template>
@@ -14,6 +16,11 @@ export default {
     props: ['todos'],
     components: {
         ListElem,
+    },
+    methods: {
+        removeElem(id) {
+            this.$emit("remove-elem", id)
+        }
     }
 }
 

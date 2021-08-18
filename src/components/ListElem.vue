@@ -1,13 +1,14 @@
 <template>
     <li>
-        <input type="checkbox" v-on:change="todo.completed = !todo.completed">
-        <strong>
-            {{todo.id}}
-        </strong>
         <span v-bind:class="{done: todo.completed}">
+            <input class="checked" type="checkbox" v-on:change="todo.completed = !todo.completed">
+            <strong>{{index + 1}}.</strong>
             {{todo.title}}
         </span>
-        <button>х</button>
+        <button class="delete"
+        v-on:click="$emit('remove-elem', todo.id)">
+            х
+        </button>
     </li>
 </template>
 
@@ -17,7 +18,8 @@ export default {
         todo: {
             type: Object,
             required: true
-        }
+        },
+        index: Number
     }
 }
 </script>
@@ -25,11 +27,33 @@ export default {
 <style>
 li {
     font-size: 26px;
-    width: 200px;
+    width: 120vh;
     border: 10px;
+    margin-bottom: 20px;
+    border: 1px solid;
+    padding: 5px;
+
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
 }
 
 .done {
     text-decoration: line-through;
+}
+
+.delete {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-weight: bold;
+    background-color: rgb(240, 240, 240);
+    border: 2px solid;
+}
+
+.checked {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
 }
 </style>
